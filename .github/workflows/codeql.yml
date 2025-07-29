@@ -11,12 +11,12 @@ jobs:
     name: Build analysis matrix
     runs-on: ubuntu-latest
     outputs:
-      repositories: "TCPChat"
+      repositories: TCPChat
     steps:
       - uses: advanced-security/cbom-action/build-matrix@v1
         id: build-matrix-action
         with:
-          repositoryNameWithOwner: "TCPChat"
+          repositoryNameWithOwner: TCPChat
           analyzeDependencies: true
           minimumLanguageBytes: 0
   run-cbom-action:
