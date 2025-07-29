@@ -11,12 +11,12 @@ jobs:
     name: Build analysis matrix
     runs-on: ubuntu-latest
     outputs:
-      repositories: ${{ steps.build-matrix-action.outputs.repositories }}
+      repositories: "TCPChat"
     steps:
       - uses: advanced-security/cbom-action/build-matrix@v1
         id: build-matrix-action
         with:
-          repositoryNameWithOwner: ${{ github.repository }}
+          repositoryNameWithOwner: "TCPChat"
           analyzeDependencies: true
           minimumLanguageBytes: 0
   run-cbom-action:
@@ -32,7 +32,7 @@ jobs:
       - uses: advanced-security/cbom-action/analyze@v1
         with:
           repositoryNameWithOwner: ${{ fromJson(matrix.repository).nameWithOwner }}
-          language: ${{ fromJson(matrix.repository).language }}
+          language: csharp
   add-workflow-summary:
     name: CBOM results
     runs-on: ubuntu-latest
